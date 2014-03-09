@@ -1,0 +1,16 @@
+name: StaffChatPlus
+main: com.alexkvazos.staffchatplus.Main
+version: 1.0
+
+commands:
+  sc:
+    description: Allows usage of staffchat
+    usage: /sc <message>
+    permission: staffchatplus.use
+    permission-message: StaffChatPlus - Insufficient Permissions 
+
+permissions:
+  staffchatplus.use:
+    description: Allows usage of staffchat
+    default: op
+    

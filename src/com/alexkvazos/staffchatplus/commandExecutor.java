@@ -17,9 +17,11 @@ public class commandExecutor implements CommandExecutor{
 		String message = "";
 		
 		//Arguments Loop
-		for(String part : args) {
-			if(message != "") message += " ";
-			message += part;
+		ArrayList<String> arguments = new ArrayList<String>(Arrays.asList(args));
+		String text = "";
+		for(int x = 1; x < arguments.size(); x++){
+		text += " " + arguments.get(x);
+		text=text.replaceAll("&([a-z0-9])","§$1");
 		}
 		
 		// sc Command Usage
@@ -31,7 +33,7 @@ public class commandExecutor implements CommandExecutor{
 		// sc Send Message
 		else if(cmd.getName().equalsIgnoreCase("sc") && sender.hasPermission("staffchatplus.use") && args.length>0)
 		{
-			Bukkit.getServer().broadcast( prefix + name + ": " + message , "staffchatplus.use");
+			Bukkit.getServer().broadcast( prefix + name + ": " + text , "staffchatplus.use");
 			return true;
 		}
 		return false;
